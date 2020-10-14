@@ -53,7 +53,7 @@ class Body extends StatelessWidget {
                 print(username);
                 print(password);
                 var jwt = await login(username, password);
-                if (jwt == 202) {
+                if (jwt == 200) {
                   Navigator.push(context, MaterialPageRoute(
                     builder: (context) {
                       return HomeScreen();

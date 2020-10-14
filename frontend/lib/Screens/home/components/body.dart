@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/Screens/Welcome/welcome_screen.dart';
 
 
 class Body extends StatelessWidget {
@@ -26,9 +27,14 @@ class Body extends StatelessWidget {
               ),
             ),
             ListTile(
-              title: Text('Item2'),
+              title: Text('logout'),
               onTap:() {
-                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(
+                  builder: (context){
+                    return WelcomeScreen();
+
+                  } )
+                  );
               },
             ),
           ],
