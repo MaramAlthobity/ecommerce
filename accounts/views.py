@@ -22,11 +22,21 @@ class UserCreate(APIView):
 
 
 
-
 class LoginView(APIView):
     def post(self, request, format='json'):
         serializer = UserLogin(data=request.data)
         serializer.is_valid(raise_exception=True)
         objectuser = serializer.validated_data
         token, _ = Token.objects.get_or_create(user=objectuser)
-        return Response(token.key, headers={"Access-Control-Allow-Origin": "*"})
+        return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
+
+
+
+
+# class LoginView(APIView):
+#     def post(self, request, format='json'):
+#         serializer = UserLogin(data=request.data)
+#         serializer.is_valid(raise_exception=True)
+#         objectuser = serializer.validated_data
+#         token, _ = Token.objects.get_or_create(user=objectuser)
+#         return Response(token.key, headers={"Access-Control-Allow-Origin": "*"})

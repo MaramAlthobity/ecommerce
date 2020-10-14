@@ -28,7 +28,6 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['email', 'username', 'password']
 
 
-
 class UserLogin(serializers.ModelSerializer):
     username=serializers.CharField(max_length=32, required=True)
     password=serializers.CharField(min_length=8, write_only=True)
@@ -45,6 +44,29 @@ class UserLogin(serializers.ModelSerializer):
             if auth:
                 return auth
             else:
-                raise  exceptions.ValidationError('Username or Password Invalid')
+                raise exceptions.ValidationError('Username or Password Invalid')
         else:
             raise exceptions.ValidationError('fill all the fields')
+
+
+
+
+# class UserLogin(serializers.ModelSerializer):
+#     username=serializers.CharField(max_length=32, required=True)
+#     password=serializers.CharField(min_length=8, write_only=True)
+
+#     class Meta:
+#         model = User
+#         fields = ('username','password')
+
+#     def validate(self,data):
+#         username=data.get('username')
+#         password=data.get('password')
+#         if username and password:
+#             auth=authenticate(username=username, password=password)
+#             if auth:
+#                 return auth
+#             else:
+#                 raise  exceptions.ValidationError('Username or Password Invalid')
+#         else:
+#             raise exceptions.ValidationError('fill all the fields')

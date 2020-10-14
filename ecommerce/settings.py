@@ -90,9 +90,12 @@ DATABASES = {
         'PASSWORD': '',
         'HOST': '127.0.0.1',
         'PORT': '3308',
-        # 'OPTION': {'init_command': "SET sql_mode='STRICT_TRANS_TABLE',"},
+        'OPTION': {'init_command': "SET sql_mode='STRICT_TRANS_TABLE',"},
     }
 }
+
+ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['10.0.2.2']
 
 
 # Password validation

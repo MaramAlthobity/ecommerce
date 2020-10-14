@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/Screens/drawer/components/body.dart';
+import 'package:frontend/Screens/home/components/body.dart';
 
-class DrawerScreen extends StatelessWidget {
+class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
